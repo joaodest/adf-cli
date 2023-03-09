@@ -25,5 +25,5 @@ class City {
     );
   }
 
-  factory City.fromJson(String json) => City.fromJson(jsonDecode(json));
+  factory City.fromJson(String json) => City.fromMap(jsonDecode(json));
 }

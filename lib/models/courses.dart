@@ -2,9 +2,9 @@
 import 'dart:convert';
 
 class Courses {
-  final int id;
-  final String nameCourse;
-  final bool isStudent;
+  int id;
+  String nameCourse;
+  bool isStudent;
 
   Courses({
     required this.id,
@@ -24,10 +24,11 @@ class Courses {
 
   factory Courses.fromMap(Map<String, dynamic> map) {
     return Courses(
-        id: map['id'] ?? 0,
-        nameCourse: map['name'] ?? '',
-        isStudent: map['isStudent'] ?? false);
+      id: map['id'] ?? 0,
+      nameCourse: map['name'] ?? '',
+      isStudent: map['isStudent'] ?? false,
+    );
   }
 
-  factory Courses.fromJson(String json) => Courses.fromJson(jsonDecode(json));
+  factory Courses.fromJson(String json) => Courses.fromMap(jsonDecode(json));
 }

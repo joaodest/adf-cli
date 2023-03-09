@@ -1,10 +1,11 @@
 import 'dart:io';
 
+import 'package:adf_cli/repositories/student_dio_repository.dart';
 import 'package:adf_cli/repositories/student_repository.dart';
 import 'package:args/command_runner.dart';
 
 class FindAllCommand extends Command {
-  final StudentRepository repository;
+  final StudentDioRepository repository;
 
   FindAllCommand(this.repository);
 
@@ -27,7 +28,8 @@ class FindAllCommand extends Command {
     for (var student in students) {
       if (showCourses?.toLowerCase() == 's') {
         print(
-            '${student.id} - ${student.name} ${student.courses.where((course) => course.isStudent).map((e) => e.nameCourse).toList()}');
+            '${student.id} - ${student.name} ${student.courses.where((course) => course.isStudent)
+            .map((e) => e.nameCourse).toList()}');
       } else {
         print('${student.id} - ${student.name}');
       }

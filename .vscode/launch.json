@@ -5,9 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "adf_cli",
+            "name": "Student Find All",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "program": "${workspaceFolder}/bin/adf_cli.dart",
+            "args": [
+                "students",
+                "delete"
+            ]
         }
     ]
 }

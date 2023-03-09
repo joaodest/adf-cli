@@ -21,7 +21,7 @@ class StudentRepository {
 
   Future<Students> findById(int id) async {
     final studentsResult =
-        await http.get(Uri.parse('http://localhost:8080/students?id=$id'));
+        await http.get(Uri.parse('http://localhost:8080/students/$id'));
 
     if (studentsResult.statusCode != 200) {
       throw Exception();
@@ -35,35 +35,31 @@ class StudentRepository {
 
   Future<void> insert(Students student) async {
     final response = await http.post(
-      Uri.parse('http://localhost:8080/students'),
-      body: student.toJson(),
-      headers: {
-        'content-type': 'application/json'
-      }
-    );
+        Uri.parse('http://localhost:8080/students'),
+        body: student.toJson(),
+        headers: {'content-type': 'application/json'});
 
-    if(response.statusCode != 200){
+    if (response.statusCode != 200) {
       throw Exception();
     }
   }
 
   Future<void> update(Students student) async {
     final response = await http.put(
-      Uri.parse('http://localhost:8080/students/${student.id}'),
-      body: student.toJson(),
-      headers: {
-        'content-type': 'application/json'
-      }
-    );
+        Uri.parse('http://localhost:8080/students/${student.id}'),
+        body: student.toJson(),
+        headers: {'content-type': 'application/json'});
 
-    if(response.statusCode != 200){
+    if (response.statusCode != 200) {
       throw Exception();
     }
   }
-  Future<void> deleteById(int id) async {
-    final response = await http.delete(Uri.parse('https://localhost:8080/students/$id'));
 
-    if(response.statusCode != 200){
+  Future<void> deleteById(int id) async {
+    final response =
+        await http.delete(Uri.parse('https://localhost:8080/students/$id'));
+
+    if (response.statusCode != 200) {
       throw Exception();
     }
   }

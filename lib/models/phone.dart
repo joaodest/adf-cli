@@ -26,5 +26,5 @@ class Phone {
     );
   }
 
-  factory Phone.fromJson(String json) => Phone.fromJson(jsonDecode(json));
+  factory Phone.fromJson(String json) => Phone.fromMap(jsonDecode(json));
 }

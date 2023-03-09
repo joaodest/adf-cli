@@ -41,6 +41,7 @@ class Students {
     return Students(
       id: map['id'] ?? 0,
       name: map['name'] ?? '',
+      age: map['age'],
       nameCourses: List<String>.from(map['nameCourses'] ?? <String>[]),
       courses: map['courses']
               ?.map<Courses>((courseMap) => Courses.fromMap(courseMap))
@@ -50,7 +51,7 @@ class Students {
     );
   }
 
-  factory Students.fromJson(String json) => Students.fromJson(jsonDecode(json));
+  factory Students.fromJson(String json) => Students.fromMap(jsonDecode(json));
 
   
 }

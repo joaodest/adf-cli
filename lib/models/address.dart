@@ -41,5 +41,5 @@ class Address {
     );
   }
 
-  factory Address.fromJson(String json) => Address.fromJson(jsonDecode(json));
+  factory Address.fromJson(String json) => Address.fromMap(jsonDecode(json));
 }
